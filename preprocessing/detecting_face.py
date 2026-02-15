@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 from retinaface import RetinaFace
-import tqdm
+from tqdm import tqdm
 import cv2
 
 root_input = "videoframes"
