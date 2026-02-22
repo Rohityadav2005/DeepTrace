@@ -28,7 +28,7 @@ for label in ["real","fake"]:
             if img is None:
                 continue
             
-            detections = RetinaFace.detect_faces(frame_path)
+            detections = RetinaFace.detect_faces(img)
 
             if isinstance(detections,dict):
 
@@ -36,12 +36,7 @@ for label in ["real","fake"]:
                 x1,y1,x2,y2 = first_face["facial_area"]
 
                 crop_face = img[y1:y2, x1:x2]
-                crop_face = cv2.resize(crop_face,(224,224))
+                crop_face = cv2.resize(crop_face,(224,224))               
 
                 save_path = os.path.join(output_video_path,frame_name)
                 cv2.imwrite(save_path,crop_face)
-
-
-
-
-
