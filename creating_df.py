@@ -2,8 +2,8 @@ import os
 import pandas as pd
 from pathlib import Path
 
-real_dir = r"kaggle dataset deepfake\real"
-fake_dir = r"kaggle dataset deepfake\fake"
+real_dir = r"faceframes\real"
+fake_dir = r"faceframes\fake"  
 
 def create_paired_df(real_dir,fake_dir):
     
@@ -50,6 +50,9 @@ def create_paired_df(real_dir,fake_dir):
 df = create_paired_df(real_dir,fake_dir)
 
 print(df.head())
+
+df.to_csv("data.csv", index=False)
+
 
 
 
