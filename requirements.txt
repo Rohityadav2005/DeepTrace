@@ -1,6 +1,10 @@
-os
 pandas 
 pathlib
-cv2
+opencv-python
 numpy
 retina-face
+ultralytics
+torch
+torchvision
+pandas
+scikit-learn

@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 
 class DeepfakeDataset(Dataset):
-    def __init__(self, df, seq_len=30, transform=None, root_dir="C:\Users\rohit\OneDrive\Desktop\DeepFakeDetectionSystem"):
+    def __init__(self, df, seq_len=30, transform=None, root_dir=r"C:\Users\rohit\OneDrive\Desktop\DeepFakeDetectionSystem"):
         self.df = df
         self.seq_len = seq_len
         self.transform = transform
@@ -45,6 +45,11 @@ class DeepfakeDataset(Dataset):
 
         if len(frames) == 0:
             raise ValueError(f"No valid images found in {folder}")
+        
+        while len(frames)<self.seq_len:
+            frames.append(frames[-1])
+
+        frames = frames[:self.seq_len]
 
         frames = torch.stack(frames) 
         return frames, label
